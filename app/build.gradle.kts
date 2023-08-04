@@ -9,12 +9,20 @@ android {
     defaultConfig {
         applicationId = "com.example.ecotrak"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    dependencies {
+        // Force the versions of Kotlin stdlib and stdlib-jdk8
+        implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom:1.8.10"))
+        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    }
+
 
     buildTypes {
         release {
@@ -43,3 +51,4 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
